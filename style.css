@@ -426,7 +426,7 @@ section {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     margin-bottom: 1.5rem;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -751,10 +751,11 @@ section {
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     opacity: 0;
     pointer-events: none;
+    backface-visibility: hidden; /* Prevent text 'mixing' from items behind */
 }
 
 .portfolio-card {
-    background: rgba(255, 255, 255, 0.5); /* Revertido para Banco com 50% transparência */
+    background: var(--bg-white); /* Totalmente sólido para evitar confusão de texto com os cards de trás */
     backdrop-filter: blur(25px); 
     -webkit-backdrop-filter: blur(25px);
     border: 2px solid rgba(255, 255, 255, 0.8); /* Borda clara 'glow' */
@@ -806,7 +807,7 @@ section {
 
 /* O site tem um modo escuro global, então mantemos a adaptação aqui */
 [data-theme="dark"] .portfolio-card {
-    background: rgba(15, 15, 15, 0.5);
+    background: var(--bg-white); /* No modo dark var(--bg-white) é o preto profundo */
     border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -1130,6 +1131,9 @@ section {
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
     .nav { display: none; }
+    .header { padding: 1rem 0; } /* Header mais compacto no mobile */
+    .hero { padding-top: 7rem; } 
+    .hero-title { font-size: 2.2rem; } 
     .hero-grid, .about-flex { grid-template-columns: 1fr; gap: 3rem; }
     
     .about-animation { margin-left: 0; margin-top: 2rem; }
