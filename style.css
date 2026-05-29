@@ -778,10 +778,10 @@ section {
 
 .video-wrapper {
     width: 100%;
-    max-width: 320px; /* Mantido o tamanho reduzido sugerido por você */
+    max-width: 320px;
     border-radius: 16px;
     overflow: hidden;
-    background: #000;
+    background: transparent;
     box-shadow: 0 30px 60px rgba(0,0,0,0.12);
     margin: 0 auto;
 }
@@ -789,10 +789,10 @@ section {
 .custom-video {
     width: 100%;
     height: auto;
-    aspect-ratio: 9/16; /* Força a proporção vertical exata */
     display: block;
-    object-fit: contain; /* Garante que 100% do vídeo vertical seja exibido sem NENHUM corte */
+    object-fit: cover;
     border-radius: 16px;
+    background: transparent;
 }
 
 /* --------------------------------------------------------------------------
@@ -1477,6 +1477,8 @@ section {
 
 @media (max-width: 991px) {
     .lp-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+    .lp-grid img { width: 100%; max-width: 500px; margin: 0 auto; display: block; }
+    .lp-grid > div { width: 100%; }
     .metrics-container { grid-template-columns: 1fr; }
     .process-step { flex-direction: column; align-items: center; text-align: center; }
     .cta-imposing { border-radius: 20px; padding: 4rem 1.5rem; margin: 4rem 0; }
